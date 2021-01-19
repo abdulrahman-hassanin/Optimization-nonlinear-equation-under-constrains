@@ -22,7 +22,7 @@ pip install matplotlib
 python optimize.py
 ```
 
-* Enter cost function equation.
+* Enter the cost function equation.
 * Enter the two constrains g1(x,y) and g2(x,y) equations.
 * Enter the initial point value of (x,y).
 
@@ -39,4 +39,4 @@ python optimize.py
     * mul '*'
     * divide '/'
     * power '^'
-    * Example: 2*x**2 + 3*y - 10
+    * Example: 2 * x**2 + 3 * y - 10
