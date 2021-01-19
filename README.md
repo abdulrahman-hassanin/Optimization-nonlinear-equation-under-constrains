@@ -38,5 +38,5 @@ python optimize.py
     * sub '-'
     * mul '*'
     * divide '/'
-    * power '^'
+    * power '**'
     * Example: 2 * x**2 + 3 * y - 10
