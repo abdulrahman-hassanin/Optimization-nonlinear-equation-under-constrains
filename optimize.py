@@ -10,7 +10,8 @@ class Optimizer:
         costFunction_str (str): cost function equation f(x,y).
         gOne_str (str): first constrain function equaiton.
         gTwo_str (str): second constrain function equation.
-        x0 (float): initial point value.
+        x0 (float): initial point value x.
+        y0 (float): initial point value of y.
         eps (float): episolon value.
     '''
     def __init__(self, costFunction_str, gOne_str, gTwo_str, x0, y0, eps=0.000001):
@@ -55,19 +56,22 @@ class Optimizer:
         plt.plot(iter_range, self.g2_values, label='g2')
         plt.legend(loc='upper right')
         plt.title('f(x, y) and g1,2(x, y) vs iteration index.')
+        plt.savefig("plot.jpg")
         plt.show()
 
 if __name__ == "__main__":
-    costFunction_str = input("Please Entrer the cost function: ")
-    gOne_str = input("Please Enter the first constrain function g1: ")
-    gTwo_str = input("Please Enter the second constrain function g2: ")
+    costFunction_str = input("Please enter the cost function: ")
+    gOne_str = input("Please enter the first constrain function g1: ")
+    gTwo_str = input("Please enter the second constrain function g2: ")
     x0 = float(input("Please enter the initial value of x: "))
     y0 = float(input("Please enter the initial value of y: "))
 
     optimizer = Optimizer(costFunction_str, gOne_str, gTwo_str, x0, y0)
     optimizer.optimizing()
-    optimizer.plot()
-    print("Final mimimized cost function: ", optimizer.res.fun)
+    
+    print("Final mimimized cost function value: ", optimizer.res.fun)
     print("Final value of x and y: ", optimizer.res.x)
-    print("Value of first constrain g1(x,y): ", optimizer.gOne(optimizer.res.x))
-    print("Value of first constrain g2(x,y): ", optimizer.gTwo(optimizer.res.x))
+    print("Final g1 constrain value: ", optimizer.gOne(optimizer.res.x))
+    print("Final g2 constrain value: ", optimizer.gTwo(optimizer.res.x))
+
+    optimizer.plot()
